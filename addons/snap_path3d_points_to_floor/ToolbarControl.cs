@@ -33,8 +33,11 @@ public partial class ToolbarControl : HBoxContainer
 				var spaceState = path3D.GetWorld3D().DirectSpaceState;
 				var query = PhysicsRayQueryParameters3D.Create(pointPosition, Vector3.Down * 100000f);
 				var result = spaceState.IntersectRay(query);
-				
-				path3D.Curve.SetPointPosition(i, result["position"].AsVector3());
+
+				if (result.ContainsKey("position"))
+				{
+					path3D.Curve.SetPointPosition(i, result["position"].AsVector3());
+				}
 			}
 		}
 	}
