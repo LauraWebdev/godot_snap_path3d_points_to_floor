@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://p0gg634pm4p"]
+
+[ext_resource type="Script" path="res://addons/snap_path3d_points_to_floor/ToolbarControl.cs" id="1_sgks8"]
+[ext_resource type="Texture2D" uid="uid://dhl68rl82lbsk" path="res://addons/snap_path3d_points_to_floor/ToolSnapToFloor.svg" id="2_x6fvq"]
+
+[node name="ToolbarControl" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sgks8")
+
+[node name="SnapButton" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+tooltip_text = "Snap points to floor"
+icon = ExtResource("2_x6fvq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="SnapButton" to="." method="SnapPointsToFloor"]
